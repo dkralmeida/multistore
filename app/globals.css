@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0b0d12;
+  --card: #0f1218;
+}
+
+body {
+  @apply bg-neutral-50 text-neutral-900;
+}
+
+.container-px {
+  @apply px-4 md:px-6;
+}
+
+.shadow-soft {
+  box-shadow: 0 10px 25px rgba(2,8,20,0.06), 0 2px 6px rgba(2,8,20,0.06);
+}
