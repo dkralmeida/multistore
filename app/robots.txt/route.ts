@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { headers } from "next/headers";
-import { getStoreByHost } from "@/src/server/tenants";
+import { getStoreByHost } from "@/server/tenants";
 
 export async function GET() {
   const host = headers().get("x-tenant-host") ?? "";

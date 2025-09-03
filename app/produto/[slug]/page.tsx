@@ -1,7 +1,7 @@
 import { headers } from "next/headers";
-import { getStoreByHost } from "@/src/server/tenants";
-import { getProductBySlug } from "@/src/server/products";
-import Lightbox from "@/src/ui/Lightbox";
+import { getStoreByHost } from "@/server/tenants";
+import { getProductBySlug } from "@/server/products";
+import Lightbox from "@/ui/Lightbox";
 import Link from "next/link";
 import Image from "next/image";
 import { Suspense } from "react";
