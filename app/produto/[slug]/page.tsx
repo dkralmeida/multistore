@@ -77,8 +77,7 @@ async function ProductContent({ slug }: { slug: string }) {
 export default function Page({ params }: { params: { slug: string } }) {
   return (
     <Suspense>
-      {/* @ts-expect-error Async Server Component */}
-      <ProductContent slug={params.slug} />
+  <ProductContent slug={params.slug} />
     </Suspense>
   );
 }
