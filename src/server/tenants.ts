@@ -48,8 +48,16 @@ export async function getStoreByHost(rawHost: string): Promise<Store> {
     doc = byPrimary.docs[0];
   }
 
-  // 3) se ainda não achou e for dev, usa a primeira loja (facilita local)
-  if (!doc && process.env.NODE_ENV !== "production") {
+  // 3) se ainda não achou, permitir fallback controlado por env:
+  //    - localmente (NODE_ENV !== 'production')
+  //    - em previews (VERCEL_ENV === 'preview')
+  //    - ou quando ENABLE_FALLBACK=true
+  const allowFallback =
+    process.env.NODE_ENV !== "production" ||
+    process.env.VERCEL_ENV === "preview" ||
+    process.env.ENABLE_FALLBACK === "true";
+
+  if (!doc && allowFallback) {
     const any = await adminDb.collection("stores").limit(1).get();
     doc = any.docs[0];
   }
